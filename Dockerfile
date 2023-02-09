@@ -7,9 +7,9 @@ RUN apt-get install -y software-properties-common debconf-utils nginx supervisor
 
 # install mysql and configure it headlessly
 RUN apt-get update \
-    && echo mysql-server-5.7 mysql-server/root_password password example_password | debconf-set-selections \
-    && echo mysql-server-5.7 mysql-server/root_password_again password example_password | debconf-set-selections \
-    && apt-get install -y mysql-server-5.7 -o pkg::Options::="--force-confdef" -o pkg::Options::="--force-confold" --fix-missing \
+    && echo mysql-server-8.0 mysql-server/root_password password example_password | debconf-set-selections \
+    && echo mysql-server-8.0 mysql-server/root_password_again password example_password | debconf-set-selections \
+    && apt-get install -y mysql-server-8.0 -o pkg::Options::="--force-confdef" -o pkg::Options::="--force-confold" --fix-missing \
     && apt-get install -y net-tools --fix-missing \
     && rm -rf /var/lib/apt/lists/*
 
