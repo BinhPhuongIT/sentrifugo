@@ -12,7 +12,7 @@ On a fresh start, run `docker-compose up`.
 
 ### Implementation ###
 
-* Sentrifugo runs inside an Ubuntu 16.04 Docker Container with PHP 7.0 and Nginx.
+* Sentrifugo runs inside an Ubuntu 16.04 Docker Container with PHP 8.1 and Nginx.
 
 #### `sentrifugo-app` ###
 
