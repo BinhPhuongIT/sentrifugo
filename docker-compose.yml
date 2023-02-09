@@ -1,6 +1,7 @@
 version: '2'
 services:
   sentrifugo-app:
+    container_name: sentrifugo-app
     build: .
     links:
       - sentrifugo-db:sentrifugo-db
@@ -9,6 +10,7 @@ services:
     ports:
       - "8080:80"
   sentrifugo-db:
+    container_name: sentrifugo-db
     image: mysql:5.7
     environment:
       # mysql root user
