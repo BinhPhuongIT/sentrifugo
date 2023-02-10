@@ -1,0 +1,26 @@
+version: '2'
+services:
+  sentrifugo-app:
+    container_name: sentrifugo-app
+    build: .
+    links:
+      - sentrifugo-db:sentrifugo-db
+    depends_on:
+      - sentrifugo-db
+    ports:
+      - "8080:80"
+  sentrifugo-db:
+    container_name: sentrifugo-db
+    image: mysql:8.0
+    environment:
+      # mysql root user
+      MYSQL_ROOT_PASSWORD: "root@2023!@#"
+      # create sentrifugo user and sentrifugo db
+      MYSQL_USER: "sentrifugo"
+      MYSQL_PASSWORD: "sentrifugo@2023!@#"
+      MYSQL_DATABASE: "sentrifugo"
+    volumes:
+      # mysql data dir
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
